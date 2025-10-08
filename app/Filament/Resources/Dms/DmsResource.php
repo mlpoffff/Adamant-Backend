@@ -18,7 +18,7 @@ class DmsResource extends Resource
 {
     protected static ?string $model = Dms::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ShieldCheck;
     protected static ?string $navigationLabel = 'Страховые';
     protected static ?string $modelLabel = 'Страховые';
     protected static ?string $pluralModelLabel = 'Страховые';
