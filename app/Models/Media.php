@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Media extends Model
 {
@@ -29,5 +30,10 @@ class Media extends Model
         return [
             'id' => 'integer',
         ];
+    }
+    public function personals(): BelongsToMany
+    {
+        return $this->belongsToMany(Personal::class, 'personal_images', 'image_id', 'personal_id')
+            ->withTimestamps();
     }
 }
