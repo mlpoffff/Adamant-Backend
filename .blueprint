@@ -1,2 +1,59 @@
+created:
+    - database/factories/MediaFactory.php
+    - database/factories/PriceCategoryFactory.php
+    - database/factories/PriceFactory.php
+    - database/factories/PersonalFactory.php
+    - database/factories/ArticleFactory.php
+    - database/factories/PersonalImageFactory.php
+    - database/factories/GalleryFactory.php
+    - database/factories/DmsFactory.php
+    - database/factories/AnnounceFactory.php
+    - database/factories/DocumentFactory.php
+    - database/factories/LicenseFactory.php
+    - database/factories/ScheduleFactory.php
+    - database/factories/ContactNumberFactory.php
+    - database/factories/ApplicationFactory.php
+    - database/migrations/2025_10_08_094750_create_media_table.php
+    - database/migrations/2025_10_08_094751_create_price_categories_table.php
+    - database/migrations/2025_10_08_094752_create_prices_table.php
+    - database/migrations/2025_10_08_094753_create_personals_table.php
+    - database/migrations/2025_10_08_094754_create_articles_table.php
+    - database/migrations/2025_10_08_094755_create_personal_images_table.php
+    - database/migrations/2025_10_08_094756_create_galleries_table.php
+    - database/migrations/2025_10_08_094757_create_dms_table.php
+    - database/migrations/2025_10_08_094758_create_announces_table.php
+    - database/migrations/2025_10_08_094759_create_documents_table.php
+    - database/migrations/2025_10_08_094800_create_licenses_table.php
+    - database/migrations/2025_10_08_094801_create_schedules_table.php
+    - database/migrations/2025_10_08_094802_create_contact_numbers_table.php
+    - database/migrations/2025_10_08_094803_create_applications_table.php
+    - app/Models/Media.php
+    - app/Models/PriceCategory.php
+    - app/Models/Price.php
+    - app/Models/Personal.php
+    - app/Models/Article.php
+    - app/Models/PersonalImage.php
+    - app/Models/Gallery.php
+    - app/Models/Dms.php
+    - app/Models/Announce.php
+    - app/Models/Document.php
+    - app/Models/License.php
+    - app/Models/Schedule.php
+    - app/Models/ContactNumber.php
+    - app/Models/Application.php
 models:
     User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Media: { id: id, src: string }
+    PriceCategory: { id: id, title: string, slug: string }
+    Price: { id: id, title: string, description: text, price: bigInteger, category_id: 'unsignedBigInteger foreign:price_categories.id' }
+    Personal: { id: id, fio: string, description: string, image_id: 'unsignedBigInteger foreign:media.id' }
+    Article: { id: id, title: string, content: text }
+    PersonalImage: { id: id, personal_id: 'unsignedBigInteger foreign:personal.id', image_id: 'unsignedBigInteger foreign:media.id' }
+    Gallery: { id: id, type: string, image_id: 'unsignedBigInteger foreign:media.id' }
+    Dms: { id: id, link: string, title: string }
+    Announce: { id: id, active: boolean, description: string }
+    Document: { id: id, image_id: 'unsignedBigInteger foreign:media.id' }
+    License: { id: id, license_text: string }
+    Schedule: { id: id, day: string, time: string }
+    ContactNumber: { id: id, number: string }
+    Application: { id: id, status: string, name: string, surname: string, phone_number: string, email: string, description: text }
