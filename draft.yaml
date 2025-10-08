@@ -21,6 +21,7 @@ models:
   Article:
     id: id
     title: string
+    preview: string
     content: text
   PersonalImage:
     id: id
