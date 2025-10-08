@@ -14,7 +14,7 @@ class GalleryForm
     {
         return $schema
             ->components([
-                Radio::make('type')
+                Select::make('type')
                     ->options([
                         'clinic' => 'Клиника',
                         'works' => 'Работы'
@@ -26,6 +26,7 @@ class GalleryForm
                     ->relationship('image', 'title')
                     ->searchable()
                     ->preload()
+                    ->required()
                     ->label('Изображение')
                     ->createOptionForm([
                         TextInput::make('title')

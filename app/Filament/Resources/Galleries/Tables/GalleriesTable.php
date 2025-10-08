@@ -15,8 +15,16 @@ class GalleriesTable
     {
         return $table
             ->columns([
-                TextColumn::make('type')->label('Раздел')
-                    ->searchable(),
+                TextColumn::make('type')
+                    ->label('Раздел')
+                    ->searchable()
+                    ->formatStateUsing(function ($state) {
+                        return match ($state) {
+                            'clinic' => 'Клиника',
+                            'works' => 'Работы',
+                            default => $state,
+                        };
+                    }),
                 ImageColumn::make('image.src')->label('Изображение'),
                 TextColumn::make('created_at')
                     ->dateTime()
