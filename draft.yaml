@@ -31,8 +31,8 @@ models:
     image_id: unsignedBigInteger foreign:media.id
   Dms:
     id: id
-    link: string
     title: string
+    link: string nullable
   Announce:
     id: id
     active: boolean

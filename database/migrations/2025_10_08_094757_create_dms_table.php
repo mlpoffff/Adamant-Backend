@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('dms', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
             $table->string('title');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
 
