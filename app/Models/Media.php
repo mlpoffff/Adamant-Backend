@@ -15,6 +15,7 @@ class Media extends Model
      * @var array
      */
     protected $fillable = [
+        'title',
         'src',
     ];
 

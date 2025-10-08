@@ -1,6 +1,7 @@
 models:
   Media:
     id: id
+    title: string nullable
     src: string
   PriceCategory:
     id: id
