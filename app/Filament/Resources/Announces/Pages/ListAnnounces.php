@@ -10,6 +10,11 @@ class ListAnnounces extends ListRecords
 {
     protected static string $resource = AnnounceResource::class;
 
+    public function getSubheading(): ?string
+    {
+        return 'На этой странице вы можете управлять анонсами. (Плашка с этой иформацией будет отображаться на всех страницах)';
+    }
+
     protected function getHeaderActions(): array
     {
         return [

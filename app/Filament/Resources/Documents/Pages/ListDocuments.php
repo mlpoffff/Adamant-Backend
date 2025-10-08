@@ -10,6 +10,11 @@ class ListDocuments extends ListRecords
 {
     protected static string $resource = DocumentResource::class;
 
+    public function getSubheading(): ?string
+    {
+        return 'На этой странице вы можете управлять документами. (Записи отображаются на странице с контактной информацией)';
+    }
+
     protected function getHeaderActions(): array
     {
         return [

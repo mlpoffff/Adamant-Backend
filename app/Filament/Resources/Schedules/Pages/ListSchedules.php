@@ -12,7 +12,7 @@ class ListSchedules extends ListRecords
 
     public function getSubheading(): ?string
     {
-        return 'На этой странице вы можете управлять режимами работы клиники. (Записи отображается на странице с контактной информацией)';
+        return 'На этой странице вы можете управлять режимами работы клиники. (Записи отображаются на странице с контактной информацией)';
     }
     protected function getHeaderActions(): array
     {

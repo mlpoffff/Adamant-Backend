@@ -9,7 +9,10 @@ use Filament\Resources\Pages\ListRecords;
 class ListMedia extends ListRecords
 {
     protected static string $resource = MediaResource::class;
-
+    public function getSubheading(): ?string
+    {
+        return 'Хранилище фотографий';
+    }
     protected function getHeaderActions(): array
     {
         return [
