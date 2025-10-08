@@ -1,0 +1,60 @@
+models:
+  Media:
+    id: id
+    src: string
+  Price:
+    id: id
+    title: string
+    description: text
+    price: bigInteger
+    category_id: bigInteger foreign:price_categories.id
+  PriceCategory:
+    id: id
+    title: string
+    slug: string
+  Personal:
+    id: id
+    fio: string
+    description: string
+    image_id: bigInteger foreign:media.id
+  Article:
+    id: id
+    title: string
+    content: text
+  PersonalImage:
+    id: id
+    personal_id: bigInteger foreign:personal.id
+    image_id: bigInteger foreign:media.id
+  Gallery:
+    id: id
+    type: string
+    image_id: bigInteger foreign:media.src
+  Dm:
+    id: id
+    link: string
+    title: string
+  Announce:
+    id: id
+    active: boolean
+    description: bigInteger
+  Document:
+    id: id
+    image_id: bigInteger foreign:media.id
+  License:
+    id: id
+    license_text: string
+  Schedule:
+    id: id
+    day: string
+    time: string
+  ContactNumber:
+    id: id
+    number: string
+  Application:
+    id: id
+    status: string
+    name: string
+    surname: string
+    phone_number: string
+    email: string
+    description: text
