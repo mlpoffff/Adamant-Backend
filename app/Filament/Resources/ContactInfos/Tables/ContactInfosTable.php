@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Licenses\Tables;
+namespace App\Filament\Resources\ContactInfos\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -8,13 +8,15 @@ use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
-class LicensesTable
+class ContactInfosTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('license_text')->label('Текст лицензии')
+                TextColumn::make('title')->label('Категория')
+                    ->searchable(),
+                TextColumn::make('info')->label('Значение')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

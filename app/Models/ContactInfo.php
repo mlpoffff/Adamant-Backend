@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ContactNumber extends Model
+class ContactInfo extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,8 @@ class ContactNumber extends Model
      * @var array
      */
     protected $fillable = [
-        'number',
+        'title',
+        'info',
     ];
 
     /**

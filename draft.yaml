@@ -42,16 +42,14 @@ models:
   Document:
     id: id
     image_id: unsignedBigInteger foreign:media.id
-  License:
-    id: id
-    license_text: string
   Schedule:
     id: id
     day: string
     time: string
-  ContactNumber:
+  ContactInfo:
     id: id
-    number: string
+    title: string
+    info: string
   Application:
     id: id
     status: string
