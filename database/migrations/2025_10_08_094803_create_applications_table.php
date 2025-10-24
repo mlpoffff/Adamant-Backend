@@ -15,12 +15,12 @@ return new class extends Migration
 
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->string('status')->default('new');
             $table->string('name');
             $table->string('surname');
             $table->string('phone_number');
             $table->string('email');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
 
