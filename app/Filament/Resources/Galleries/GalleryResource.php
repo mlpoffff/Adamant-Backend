@@ -20,7 +20,7 @@ class GalleryResource extends Resource
     protected static ?string $model = Gallery::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Photo;
-    protected static string | UnitEnum | null $navigationGroup = 'Медиа';
+    protected static string | UnitEnum | null $navigationGroup = 'Контент';
     protected static ?string $navigationLabel = 'Галерея';
     protected static ?string $modelLabel = 'Фото';
     protected static ?string $pluralModelLabel = 'Галерея';

@@ -13,12 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PriceResource extends Resource
 {
     protected static ?string $model = Price::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ListBullet;
+    protected static string | UnitEnum | null $navigationGroup = 'Услуги и страховые';
 
     protected static ?string $recordTitleAttribute = 'Price';
     protected static ?string $navigationLabel = 'Услуги';
@@ -29,7 +31,14 @@ class PriceResource extends Resource
     {
         return PriceForm::configure($schema);
     }
-
+    public static function getNavigationBadge(): ?string
+    {
+        return (string)Price::count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'info';
+    }
     public static function table(Table $table): Table
     {
         return PricesTable::configure($table);

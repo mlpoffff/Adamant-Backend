@@ -13,12 +13,15 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PersonalResource extends Resource
 {
     protected static ?string $model = Personal::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::UserGroup;
+    protected static string | UnitEnum | null $navigationGroup = 'Контент';
+
     protected static ?string $navigationLabel = 'Сотрудники';
     protected static ?string $modelLabel = 'Сотрудника';
     protected static ?string $pluralModelLabel = 'Сотрудники';

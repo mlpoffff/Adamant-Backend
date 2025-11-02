@@ -13,12 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ScheduleResource extends Resource
 {
     protected static ?string $model = Schedule::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Calendar;
+    protected static string | UnitEnum | null $navigationGroup = 'Контактная и общая информация';
     protected static ?string $navigationLabel = 'Режим работы';
     protected static ?string $modelLabel = 'Запись';
     protected static ?string $pluralModelLabel = 'Режим работы';

@@ -13,12 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class ContactInfoResource extends Resource
 {
     protected static ?string $model = ContactInfo::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::QuestionMarkCircle;
+    protected static string | UnitEnum | null $navigationGroup = 'Контактная и общая информация';
     protected static ?string $navigationLabel = 'Общая информация';
     protected static ?string $modelLabel = 'Запись';
     protected static ?string $pluralModelLabel = 'Общая информация';

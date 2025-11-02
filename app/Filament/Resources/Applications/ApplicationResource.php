@@ -18,12 +18,20 @@ class ApplicationResource extends Resource
 {
     protected static ?string $model = Application::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::PaperAirplane;
 
     protected static ?string $navigationLabel = 'Заявки';
     protected static ?string $modelLabel = 'Заявку';
     protected static ?string $pluralModelLabel = 'Заявки';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return "Новые: " . (string)Application::where('status', 'new')->count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'info';
+    }
     public static function form(Schema $schema): Schema
     {
         return ApplicationForm::configure($schema);

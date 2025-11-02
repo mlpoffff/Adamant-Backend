@@ -20,7 +20,7 @@ class ArticleResource extends Resource
     protected static ?string $model = Article::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
-    protected static string | UnitEnum | null $navigationGroup = 'Медиа';
+    protected static string | UnitEnum | null $navigationGroup = 'Контент';
     protected static ?string $navigationLabel = 'Статьи';
     protected static ?string $modelLabel = 'Статью';
     protected static ?string $pluralModelLabel = 'Статьи';

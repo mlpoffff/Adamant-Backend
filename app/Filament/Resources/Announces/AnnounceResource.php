@@ -13,12 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class AnnounceResource extends Resource
 {
     protected static ?string $model = Announce::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::InformationCircle;
+    protected static string | UnitEnum | null $navigationGroup = 'Контактная и общая информация';
     protected static ?string $navigationLabel = 'Анонсы';
     protected static ?string $modelLabel = 'Анонс';
     protected static ?string $pluralModelLabel = 'Анонсы';

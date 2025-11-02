@@ -13,12 +13,14 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class DmsResource extends Resource
 {
     protected static ?string $model = Dms::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::ShieldCheck;
+    protected static string | UnitEnum | null $navigationGroup = 'Услуги и страховые';
     protected static ?string $navigationLabel = 'Страховые';
     protected static ?string $modelLabel = 'Страховую';
     protected static ?string $pluralModelLabel = 'Страховые';

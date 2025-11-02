@@ -13,15 +13,16 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use UnitEnum;
 
 class PriceCategoryResource extends Resource
 {
     protected static ?string $model = PriceCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Tag;
 
     protected static ?string $recordTitleAttribute = 'PriceCategory';
-
+    protected static string | UnitEnum | null $navigationGroup = 'Услуги и страховые';
     protected static ?string $navigationLabel = 'Категории услуг';
     protected static ?string $modelLabel = 'Категорию услуг';
     protected static ?string $pluralModelLabel = 'Категории услуг';
@@ -30,7 +31,14 @@ class PriceCategoryResource extends Resource
     {
         return PriceCategoryForm::configure($schema);
     }
-
+    public static function getNavigationBadge(): ?string
+    {
+        return (string)PriceCategory::count();
+    }
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'info';
+    }
     public static function table(Table $table): Table
     {
         return PriceCategoriesTable::configure($table);
