@@ -15,10 +15,11 @@ class DocumentsTable
     {
         return $table
             ->columns([
-                TextColumn::make('image.title')->label('Документ')
+                TextColumn::make('image.title')
+                    ->label('Документ')
+                    ->default('Без названия')
                     ->searchable(),
                 ImageColumn::make('image.src')->label('Изображение'),
-
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
