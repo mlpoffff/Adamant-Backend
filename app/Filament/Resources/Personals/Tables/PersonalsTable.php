@@ -17,7 +17,7 @@ class PersonalsTable
             ->columns([
                 TextColumn::make('fio')->label('Ф.И.О.')
                     ->searchable(),
-                ImageColumn::make('image.src')->label('Изображение')
+                ImageColumn::make('image.src')->label('Изображение карточки')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

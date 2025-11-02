@@ -23,7 +23,11 @@ class GalleryForm
                     ->default('clinic')
                     ->label('Раздел'),
                 Select::make('image_id')
-                    ->relationship('image', 'title')
+                    ->relationship('image', 'src')
+                    ->getOptionLabelFromRecordUsing(function (\App\Models\Media $record) {
+                        $title = $record->title ?: 'Без названия';
+                        return "id: {$record->id} - {$title}";
+                    })
                     ->searchable()
                     ->preload()
                     ->required()

@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Announces\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -12,11 +12,13 @@ class AnnounceForm
     {
         return $schema
             ->components([
-                TextInput::make('description')->label('Информация')
-                    ->required(),
                 Toggle::make('active')->label('Активность')
                     ->required()
+                    ->columnSpan('full')
                     ->default(true),
+                Textarea::make('description')->label('Информация')
+                    ->columnSpan('full')
+                    ->required(),
             ]);
     }
 }

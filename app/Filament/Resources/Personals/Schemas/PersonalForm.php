@@ -15,11 +15,17 @@ class PersonalForm
         return $schema
             ->components([
                 TextInput::make('fio')->label('Ф.И.О.')
-                    ->required(),
+                    ->required()
+                    ->columnSpan('full'),
                 Textarea::make('description')->label('Информация')
-                    ->required(),
+                    ->required()
+                    ->columnSpan('full'),
                 Select::make('image_id')
-                    ->relationship('image', 'title')
+                    ->relationship('image', 'src')
+                    ->getOptionLabelFromRecordUsing(function (\App\Models\Media $record) {
+                        $title = $record->title ?: 'Без названия';
+                        return "id: {$record->id} - {$title}";
+                    })
                     ->searchable()
                     ->preload()
                     ->required()
@@ -29,23 +35,25 @@ class PersonalForm
                             ->string()
                             ->label('Название'),
                         FileUpload::make('src')
-                            ->label('Изображение')
+                            ->label('Изображение карточки')
                             ->image()
                             ->required()
                     ]),
                 Select::make('certificates')
                     ->label('Сертификаты')
                     ->multiple()
-                    ->relationship('certificates', 'title') // название из Media
+                    ->relationship('image', 'src')
+                    ->getOptionLabelFromRecordUsing(function (\App\Models\Media $record) {
+                        $title = $record->title ?: 'Без названия';
+                        return "id: {$record->id} - {$title}";
+                    })
                     ->preload()
                     ->createOptionForm([
                         TextInput::make('title')
-                            ->label('Название')
-                            ->required(),
+                            ->label('Название'),
                         FileUpload::make('src')
                             ->label('Изображение')
                             ->image()
-                            ->directory('certificates')
                             ->required(),
                     ])
             ]);

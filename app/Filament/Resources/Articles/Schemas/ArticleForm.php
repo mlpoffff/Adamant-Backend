@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Articles\Schemas;
 
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -13,9 +14,11 @@ class ArticleForm
         return $schema
             ->components([
                 TextInput::make('title')->label('Заголовок')
-                    ->required(),
-                TextInput::make('preview')->label('Краткое описание')
-                    ->required(),
+                    ->required()
+                    ->columnSpan('full'),
+                Textarea::make('preview')->label('Краткое описание')
+                    ->required()
+                    ->columnSpan('full'),
                 RichEditor::make('content')->label('Статья')
                     ->required()
                     ->columnSpanFull(),

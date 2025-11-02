@@ -15,8 +15,9 @@ class PriceForm
             ->components([
                 TextInput::make('title')->label('Название')
                     ->required(),
-                Textarea::make('description')->label('Описание')
-                    ->columnSpanFull(),
+                Select::make('category_id')->label('Категория')
+                    ->relationship('category', 'title')
+                    ->required(),
                 TextInput::make('price_from')
                     ->label('Стоимость от')
                     ->required()
@@ -29,9 +30,8 @@ class PriceForm
                     ->step(0.01)
                     ->prefix('₽')
                     ->helperText('Если указано значение, будет отображен диапазон цен'),
-                Select::make('category_id')->label('Категория')
-                    ->relationship('category', 'title')
-                    ->required(),
+                Textarea::make('description')->label('Описание')
+                    ->columnSpanFull(),
             ]);
     }
 }
