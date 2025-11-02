@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('prices', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->text('description');
-            $table->bigInteger('price');
+            $table->text('description')->nullable();
+            $table->float('price_from')->default(0);
+            $table->float('price_to')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('price_categories');
             $table->timestamps();

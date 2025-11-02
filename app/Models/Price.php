@@ -18,7 +18,8 @@ class Price extends Model
     protected $fillable = [
         'title',
         'description',
-        'price',
+        'price_from',
+        'price_to',
         'category_id',
     ];
 
@@ -31,7 +32,8 @@ class Price extends Model
     {
         return [
             'id' => 'integer',
-            'price' => 'integer',
+            'price_from' => 'float',
+            'price_to' => 'float',
             'category_id' => 'integer',
         ];
     }
