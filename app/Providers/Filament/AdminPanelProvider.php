@@ -29,7 +29,24 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'danger' => Color::Rose,
+                'gray' => [
+                    50 => '245, 246, 246',
+                    100 => '235, 236, 238',
+                    200 => '229, 231, 235',
+                    300 => '209, 213, 219',
+                    400 => '156, 163, 175',
+                    500 => '107, 114, 128',
+                    600 => '75, 85, 99',
+                    700 => '55, 65, 81',
+                    800 => '31, 41, 55',
+                    900 => '27, 32, 40',
+                    950 => '17, 20, 24',
+                ],
+                'info' => Color::Blue,
+                'primary' => Color::Indigo,
+                'success' => Color::Emerald,
+                'warning' => Color::Orange,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
