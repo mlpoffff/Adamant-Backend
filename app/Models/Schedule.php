@@ -30,4 +30,20 @@ class Schedule extends Model
             'id' => 'integer',
         ];
     }
+
+    public function getDayAttribute($value): string
+    {
+        return match ($value) {
+            'weekdays' => 'Будни',
+            'weekend' => 'Выходные',
+            'monday' => 'Понедельник',
+            'tuesday' => 'Вторник',
+            'wednesday' => 'Среда',
+            'thursday' => 'Четверг',
+            'friday' => 'Пятница',
+            'saturday' => 'Суббота',
+            'sunday' => 'Воскресенье',
+            default => $value,
+        };
+    }
 }

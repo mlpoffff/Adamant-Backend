@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
 
 class Media extends Model
 {
@@ -35,5 +36,16 @@ class Media extends Model
     {
         return $this->belongsToMany(Personal::class, 'personal_images', 'image_id', 'personal_id')
             ->withTimestamps();
+    }
+    public function getSrcAttribute($value)
+    {
+        if (!$value) {
+            return null;
+        }
+
+        // Если файлы хранятся в storage/app/public/
+        return Storage::url($value);
+        // Альтернатива без фасада:
+        // return asset('storage/' . $value);
     }
 }
