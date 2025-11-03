@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Filament\Resources\ContactInfos\Schemas;
+namespace App\Filament\Resources\MainInfos\Schemas;
 
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
-class ContactInfoForm
+class MainInfoForm
 {
     public static function configure(Schema $schema): Schema
     {

@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\ContactInfos\Pages;
+namespace App\Filament\Resources\MainInfos\Pages;
 
-use App\Filament\Resources\ContactInfos\ContactInfoResource;
+use App\Filament\Resources\MainInfos\MainInfoResource;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
 class ListContactInfos extends ListRecords
 {
-    protected static string $resource = ContactInfoResource::class;
+    protected static string $resource = MainInfoResource::class;
 
     public function getSubheading(): ?string
     {

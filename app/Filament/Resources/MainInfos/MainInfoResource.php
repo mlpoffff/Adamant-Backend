@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\ContactInfos;
+namespace App\Filament\Resources\MainInfos;
 
-use App\Filament\Resources\ContactInfos\Pages\CreateContactInfo;
-use App\Filament\Resources\ContactInfos\Pages\EditContactInfo;
-use App\Filament\Resources\ContactInfos\Pages\ListContactInfos;
-use App\Filament\Resources\ContactInfos\Schemas\ContactInfoForm;
-use App\Filament\Resources\ContactInfos\Tables\ContactInfosTable;
-use App\Models\ContactInfo;
+use App\Filament\Resources\MainInfos\Pages\CreateContactInfo;
+use App\Filament\Resources\MainInfos\Pages\EditContactInfo;
+use App\Filament\Resources\MainInfos\Pages\ListContactInfos;
+use App\Filament\Resources\MainInfos\Schemas\MainInfoForm;
+use App\Filament\Resources\MainInfos\Tables\MainInfosTable;
+use App\Models\MainInfo;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -15,9 +15,9 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
 
-class ContactInfoResource extends Resource
+class MainInfoResource extends Resource
 {
-    protected static ?string $model = ContactInfo::class;
+    protected static ?string $model = MainInfo::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::QuestionMarkCircle;
     protected static string | UnitEnum | null $navigationGroup = 'Контактная и общая информация';
@@ -29,12 +29,12 @@ class ContactInfoResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return ContactInfoForm::configure($schema);
+        return MainInfoForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return ContactInfosTable::configure($table);
+        return MainInfosTable::configure($table);
     }
 
     public static function getRelations(): array
