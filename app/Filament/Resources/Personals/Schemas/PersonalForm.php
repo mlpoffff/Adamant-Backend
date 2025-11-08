@@ -42,7 +42,7 @@ class PersonalForm
                 Select::make('certificates')
                     ->label('Сертификаты')
                     ->multiple()
-                    ->relationship('image', 'src')
+                    ->relationship('certificates', 'src')
                     ->getOptionLabelFromRecordUsing(function (\App\Models\Media $record) {
                         $title = $record->title ?: 'Без названия';
                         return "id: {$record->id} - {$title}";
